@@ -1,7 +1,6 @@
 require "dry/core/constants"
 require "forwardable"
 require "hanami/view/context"
-require "site/import"
 require "uri"
 
 module Site
@@ -11,7 +10,7 @@ module Site
 
       include Dry::Core::Constants
 
-      include Import["assets", "settings"]
+      include Deps["assets", "settings"]
 
       def_delegators :settings, :site_name, :site_author, :site_url
 

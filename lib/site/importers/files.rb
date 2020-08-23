@@ -3,8 +3,6 @@ require "pathname"
 require "transproc"
 require "yaml"
 
-require "site/import"
-
 module Site
   module Importers
     class Files
@@ -17,7 +15,7 @@ module Site
         YAML.safe_load(str, _whitelist_classes = [Date, Time])
       }.freeze
 
-      include Import[
+      include Deps[
         "database.rom",
         "inflector",
       ]

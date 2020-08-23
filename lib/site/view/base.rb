@@ -3,16 +3,13 @@
 require "builder"
 require "hanami/view"
 require "slim"
-require "site/container"
 
 module Site
   module View
     class Base < Hanami::View
-      configure do |config|
-        config.paths = [Container.root.join("templates")]
-        config.default_context = Container["view.context"]
-        config.layout = "site"
-      end
+      config.paths = [Hanami.application.root.join("templates")]
+      config.default_context = Hanami.application["view.context"]
+      config.layout = "site"
 
       def call(context: nil, **input)
         # Always provide a new context object, so we don't carry over state

@@ -1,11 +1,9 @@
-Site::Container.boot :assets do |site|
+Hanami.application.register_bootable :assets do |site|
   init do
     require "site/assets"
   end
 
   start do
-    use :settings
-
     assets =
       if site[:settings].assets_precompiled
         Site::Assets::Precompiled.new(site[:settings].export_dir)

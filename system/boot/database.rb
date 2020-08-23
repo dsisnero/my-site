@@ -1,4 +1,4 @@
-Site::Container.boot :database, namespace: true do |site|
+Hanami.application.register_bootable :database, namespace: true do |site|
   init do
     require "sequel"
     require "rom"

@@ -1,11 +1,10 @@
-require "site/import"
 require "site/view/base"
 require "site/view/parts/article"
 
 module Site
   module Views
     class Home < View::Base
-      include Import["repos.article_repo"]
+      include Deps["repos.article_repo"]
 
       configure do |config|
         config.template = "home"

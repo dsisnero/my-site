@@ -1,4 +1,3 @@
-require "site/import"
 require "dry/monads"
 require "dry/monads/do"
 require "dry/monads/result"
@@ -8,7 +7,7 @@ module Site
     include Dry::Monads::Result::Mixin
     include Dry::Monads::Do.for(:call)
 
-    include Import[
+    include Deps[
       "prepare",
       "generate",
     ]
